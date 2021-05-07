@@ -3,7 +3,7 @@ import { createElement } from "../utils/elements.js";
 
 export function createSuperheroDetails({ name, image, biography, appearance }) {
   return createElement("section", {
-    className: "hero-profile",
+    className: "superhero-profile",
     children: [
       createElement("h1", { innerText: name }),
       createElement("img", { src: image }),

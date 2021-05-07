@@ -6,9 +6,9 @@ export function createSuperhero({ name, image, biography, appearance }) {
     className: "hero-details",
     children: [
       createElement("h1", { innerText: name }),
-      createElement("img", { src: image }),
-      createElement("p", { innerText: biography }),
-      createElement("p", { innerText: appearance }),
+      createElement("img", { src: image.url }),
+      createElement("p", { innerText: biography["full-name"] }),
+      createElement("p", { innerText: appearance.race }),
     ],
   });
 }

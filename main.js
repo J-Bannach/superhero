@@ -1,7 +1,7 @@
 import "./style.css";
 import { createElement, removeAllChildren } from "./utils/elements";
 import { createSuperhero } from "./components/character";
-import { getCharacters } from "./utils/api";
+import { getSuperheroes } from "./utils/api";
 import { debounce } from "./utils/timer";
 
 const superheroSection = createElement("section", {
@@ -19,7 +19,7 @@ const mainElement = createElement("main", {
     createElement("header", {
       className: "hero",
       children: [
-        createElement("h1", { innerText: "Your Superhero API" }),
+        createElement("h1", { innerText: "Find Your Superhero" }),
         createElement("input", {
           className: "input",
           placeholder: "Enter superhero here",
@@ -28,7 +28,8 @@ const mainElement = createElement("main", {
             removeAllChildren(superheroSection);
 
             const search = event.target.value;
-            getCharacters(search).then((superheroes) => {
+            getSuperheroes(search).then((superheroes) => {
+              console.log(superheroes);
               const superheroElements = superheroes.map(createSuperhero);
               superheroSection.append(...superheroElements);
             });
@@ -37,13 +38,17 @@ const mainElement = createElement("main", {
       ],
     }),
     superheroSection,
-    // createElement("section", {
-    //   className: "search-results",
-    // }),
+
     createElement("footer", {
       innerText: "All superheroes in one place!",
     }),
   ],
 });
+
+fetch(
+  `https://cors.machens.koeln/https://superheroapi.com/api/10157586572816260/1`
+)
+  .then((response) => response.json())
+  .then((data) => console.log(data));
 
 document.querySelector("#app").append(mainElement);

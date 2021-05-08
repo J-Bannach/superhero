@@ -8,13 +8,13 @@ const superheroSection = createElement("section", {
   className: "search-results",
 });
 
-// getCharacters().then((characters) => {
-//   const characterElements = characters.map(createCharacter);
-//   characterSection.append(...characterElements);
-// });
+getSuperheroes().then((characters) => {
+  const characterElements = characters.map(createSuperhero);
+  superheroSection.append(...characterElements);
+});
 
 const mainElement = createElement("main", {
-  className: "main-page",
+  className: "main",
   children: [
     createElement("header", {
       className: "hero",
@@ -40,6 +40,7 @@ const mainElement = createElement("main", {
     superheroSection,
 
     createElement("footer", {
+      className: "footer",
       innerText: "All superheroes in one place!",
     }),
   ],

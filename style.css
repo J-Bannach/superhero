@@ -4,7 +4,16 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: var(--primary-background-color);
+  height: 100vh;
+  margin-top: 0;
+  display: grid;
+  grid-template-rows: 5em auto 2em;
+
+  /* grid-template-columns: repeat(3, 1fr); */
+  background-image: url(./assets/batman.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 *,
@@ -14,32 +23,33 @@
 }
 
 :root {
-  --primary-font-color: #293241;
+  --primary-font-color: #98c1d9;
   --secondary-font-color: #e0fbfc;
-  --primary-background-color: #98c1d9;
+  --primary-background-color: #293241;
   --secondary-background-color: #ee6c4d;
   --accent-color: #e76f51;
 }
 
 body {
   margin: 0;
-
-  /* color: var(--primary-font-color); */
 }
 
-.main-page {
+.main {
   height: 100vh;
 }
 
-.hero {
-  display: grid;
-  background-color: var(--primary-background-color);
+.hero input::placeholder {
+  color: var(--accent-color);
 }
 
 input {
-  border-radius: 0.3em;
+  height: 3em;
   width: 20em;
   justify-self: center;
+  text-align: center;
+  margin-bottom: 2em;
+  border: var(--accent-color) solid 0.2em;
+  opacity: 0.6;
 }
 
 .search-results {
@@ -49,4 +59,25 @@ input {
 
 footer {
   background-color: var(--secondary-background-color);
+  grid-row: 3/4;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-font-color);
+  font-size: 1.5em;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+.search-results img {
+  border-radius: 1em;
+  height: 15em;
+  width: 15em;
+}
+
+p {
+  color: var(--primary-font-color);
 }

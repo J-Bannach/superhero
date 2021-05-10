@@ -9,11 +9,14 @@
   margin-top: 0;
   display: grid;
   grid-template-rows: 5em auto 2em;
-
-  /* grid-template-columns: repeat(3, 1fr); */
-  background-image: url(./assets/batman.jpg);
+  background-image: url(./assets/pop.jpg);
   background-position: center;
   background-size: cover;
+
+  /* grid-template-columns: repeat(3, 1fr); */
+
+  /* background-image: url(./assets/pop.jpg); */
+  opacity: 0.9;
 }
 
 *,
@@ -36,6 +39,10 @@ body {
 
 .main {
   height: 100vh;
+
+  /* background-image: url(./assets/pop.jpg);
+  background-position: center;
+  background-size: cover; */
 }
 
 .hero input::placeholder {
@@ -43,13 +50,12 @@ body {
 }
 
 input {
-  height: 3em;
-  width: 20em;
+  height: 4em;
+  width: 25em;
   justify-self: center;
   text-align: center;
   margin-bottom: 2em;
   border: var(--accent-color) solid 0.2em;
-  opacity: 0.6;
 }
 
 .search-results {
@@ -57,14 +63,16 @@ input {
   background-color: var(--primary-background-color);
 }
 
-footer {
+.footer {
   background-color: var(--secondary-background-color);
-  grid-row: 3/4;
+  height: 4em;
+  align-self: center;
+  opacity: 1;
 }
 
 a {
   text-decoration: none;
-  color: var(--primary-font-color);
+  color: var(--primary-background-color);
   font-size: 1.5em;
 }
 
@@ -80,4 +88,9 @@ a:hover {
 
 p {
   color: var(--primary-font-color);
+  text-align: center;
+}
+
+h1 {
+  background-color: var(--primary-font-color);
 }

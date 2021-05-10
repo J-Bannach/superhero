@@ -33,7 +33,7 @@ const mainElement = createElement("main", {
               const superheroElements = superheroes.map(createSuperhero);
               superheroSection.append(...superheroElements);
             });
-          }, 300),
+          }, 350),
         }),
       ],
     }),
@@ -51,5 +51,10 @@ fetch(
 )
   .then((response) => response.json())
   .then((data) => console.log(data));
+fetch(
+  `https://cors.machens.koeln/https://superheroapi.com/api/${
+    import.meta.env.VITE_API_KEY
+  }/`
+);
 
 document.querySelector("#app").append(mainElement);

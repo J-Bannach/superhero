@@ -1,6 +1,60 @@
 import "./style.css";
+import { createElement, removeAllChildren } from "./utils/elements";
+import { createSuperhero } from "./components/character";
+import { getSuperheroes } from "./utils/api";
+import { debounce } from "./utils/timer";
 
-document.querySelector("#app").innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`;
+const superheroSection = createElement("section", {
+  className: "search-results",
+});
+
+getSuperheroes().then((characters) => {
+  const characterElements = characters.map(createSuperhero);
+  superheroSection.append(...characterElements);
+});
+
+const mainElement = createElement("main", {
+  className: "main",
+  children: [
+    createElement("header", {
+      className: "hero",
+      children: [
+        createElement("h1", { innerText: "Find Your Superhero" }),
+        createElement("input", {
+          className: "input",
+          placeholder: "Enter superhero here",
+          autofocus: true,
+          oninput: debounce((event) => {
+            removeAllChildren(superheroSection);
+
+            const search = event.target.value;
+            getSuperheroes(search).then((superheroes) => {
+              console.log(superheroes);
+              const superheroElements = superheroes.map(createSuperhero);
+              superheroSection.append(...superheroElements);
+            });
+          }, 350),
+        }),
+      ],
+    }),
+    superheroSection,
+
+    createElement("footer", {
+      className: "footer",
+      innerText: "All superheroes in one place!",
+    }),
+  ],
+});
+
+fetch(
+  `https://cors.machens.koeln/https://superheroapi.com/api/10157586572816260/1`
+)
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+fetch(
+  `https://cors.machens.koeln/https://superheroapi.com/api/${
+    import.meta.env.VITE_API_KEY
+  }/`
+);
+
+document.querySelector("#app").append(mainElement);

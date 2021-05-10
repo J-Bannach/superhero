@@ -1,0 +1,29 @@
+:root {
+  --primary-font-color: #98c1d9;
+  --secondary-font-color: #e0fbfc;
+  --primary-background-color: #293241;
+  --secondary-background-color: #ee6c4d;
+  --accent-color: #e76f51;
+}
+
+body {
+  margin: 0;
+}
+.main {
+  background-color: var(--primary-background-color);
+  color: var(--primary-font-color);
+}
+
+h1 {
+  background-color: var(--primary-background-color);
+  color: var(--primary-font-color);
+  padding-top: 1em;
+  margin: 0.5em;
+}
+p {
+  color: var(--primary-font-color);
+}
+
+img {
+  border-radius: 1em;
+}

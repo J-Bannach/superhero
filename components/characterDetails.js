@@ -38,18 +38,22 @@ export function createSuperheroDetails({
       createElement("p", { innerText: appearance["eye - color"] }),
       createElement("p", { innerText: appearance["hair - color"] }),
 
-      createElement("p", { innerText: powerstats.intelligence }),
-      createElement("p", { innerText: powerstats.strength }),
-      createElement("p", { innerText: powerstats.speed }),
-      createElement("p", { innerText: powerstats.durability }),
-      createElement("p", { innerText: powerstats.power }),
-      createElement("p", { innerText: powerstats.combat }),
+      createElement("p", {
+        innerText: "Intelligence: " + powerstats.intelligence,
+      }),
+      createElement("p", { innerText: "Strength: " + powerstats.strength }),
+      createElement("p", { innerText: "Speed: " + powerstats.speed }),
+      createElement("p", { innerText: "Durability: " + powerstats.durability }),
+      createElement("p", { innerText: "Power: " + powerstats.power }),
+      createElement("p", { innerText: "Combat: " + powerstats.combat }),
 
-      createElement("p", { innerText: work.occupation }),
-      createElement("p", { innerText: work.base }),
+      createElement("p", { innerText: "Occupation: " + work.occupation }),
+      createElement("p", { innerText: "Base: " + work.base }),
 
-      createElement("p", { innerText: connections["group - affiliation"] }),
-      createElement("p", { innerText: connections.relatives }),
+      createElement("p", {
+        innerText: "Affiliation: " + connections["group - affiliation"],
+      }),
+      createElement("p", { innerText: "Relatives: " + connections.relatives }),
     ],
   });
 }
